@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSON_Serializer", "JSON_Serializer.csproj", "{7E0E10BB-D712-49E3-95F3-1094D8CF153D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{F621BFB9-1DA2-4A0E-BE9B-7E83D764350C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{7E0E10BB-D712-49E3-95F3-1094D8CF153D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E0E10BB-D712-49E3-95F3-1094D8CF153D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E0E10BB-D712-49E3-95F3-1094D8CF153D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F621BFB9-1DA2-4A0E-BE9B-7E83D764350C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F621BFB9-1DA2-4A0E-BE9B-7E83D764350C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F621BFB9-1DA2-4A0E-BE9B-7E83D764350C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F621BFB9-1DA2-4A0E-BE9B-7E83D764350C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
