@@ -1,13 +1,13 @@
 ﻿namespace Tests;
 
-public abstract class TestsClasses
+public abstract class TestsClass
 {
     private string testString;
     private int testInteger;
     private char testSymbol;
     private bool testBoolean;
 
-    public TestsClasses(string _testString, int _testInteger, char _testSymbol, bool _testBoolean)
+    public TestsClass(string _testString, int _testInteger, char _testSymbol, bool _testBoolean)
     {
         testString = _testString;
         testInteger = _testInteger;

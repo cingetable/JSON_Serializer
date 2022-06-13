@@ -1,7 +1,5 @@
 ﻿using System.Reflection;
-
 namespace JSON_Serializer;
-
 public class Serializer
 {
     public string Serialize(object obj)
