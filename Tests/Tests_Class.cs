@@ -2,10 +2,10 @@
 [Serializable]
 public class TestsClass
 {
-    private string testString { get; set; }
-    private int testInteger { get; set; }
-    private char testSymbol { get; set; }
-    private bool testBoolean { get; set; }
+    public string testString { get; set; }
+    public int testInteger { get; set; }
+    public char testSymbol { get; set; }
+    public bool testBoolean { get; set; }
 
     public TestsClass(string _testString, int _testInteger, char _testSymbol, bool _testBoolean)
     {
@@ -14,4 +14,12 @@ public class TestsClass
         testBoolean = _testBoolean;
         testSymbol = _testSymbol;
     }
+}
+
+public class TestsClass_noConstuctor
+{
+    public string testString { get; set; }
+    public int testInteger { get; set; }
+    public char testSymbol { get; set; }
+    public bool testBoolean { get; set; }
 }
