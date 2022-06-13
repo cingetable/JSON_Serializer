@@ -1,5 +1,5 @@
 ﻿namespace Tests;
-
+[Serializable]
 public class TestsClass
 {
     private string testString;
