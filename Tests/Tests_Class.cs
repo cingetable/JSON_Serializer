@@ -1,6 +1,6 @@
 ﻿namespace Tests;
 
-public abstract class TestsClass
+public class TestsClass
 {
     private string testString;
     private int testInteger;
