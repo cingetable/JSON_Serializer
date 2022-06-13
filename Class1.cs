@@ -9,7 +9,8 @@ public class Serializer
     
         foreach (PropertyInfo elem in type.GetProperties())
         {
-            string currentPropertyFormat = $"\u0022{elem.Name}\u0022:{elem.GetValue(obj)}";
+            // {elem.GetValue(obj)}
+            string currentPropertyFormat = $"\u0022{elem.Name}\u0022:{elem.GetValue(obj) ?? "null"}";
             props.Add(currentPropertyFormat);
         }
     
