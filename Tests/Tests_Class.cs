@@ -2,10 +2,10 @@
 [Serializable]
 public class TestsClass
 {
-    private string testString;
-    private int testInteger;
-    private char testSymbol;
-    private bool testBoolean;
+    private string testString { get; set; }
+    private int testInteger { get; set; }
+    private char testSymbol { get; set; }
+    private bool testBoolean { get; set; }
 
     public TestsClass(string _testString, int _testInteger, char _testSymbol, bool _testBoolean)
     {
