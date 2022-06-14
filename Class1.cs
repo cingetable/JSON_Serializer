@@ -12,12 +12,12 @@ public class Serializer
     
         foreach (PropertyInfo elem in type.GetProperties())
         {
-            object value = elem.GetValue(obj);
+            object? value = elem.GetValue(obj);
             string textValue = value is string text ? $"\"{text.Replace("\"", "\\\"")}\"" : $"{value ?? "null"}";
+            textValue = value is bool ? textValue.ToLower() : textValue;
             string currentPropertyFormat = $"\"{elem.Name}\":{textValue}";
             props.Add(currentPropertyFormat);
         }
-        // расставляем запятые
         for (int i = 0; i < props.Count; i++)
         {
             jsonString += props[i];
