@@ -1,20 +1,23 @@
 ﻿using System.Reflection;
+using System.Text;
 namespace JSON_Serializer;
 public class Serializer
 {
+    
     public string Serialize(object obj)
     {
+        string jsonString = "";
         List<string> props = new List<string>();
         Type type = obj.GetType();
     
         foreach (PropertyInfo elem in type.GetProperties())
         {
-            // {elem.GetValue(obj)}
-            string currentPropertyFormat = $"\u0022{elem.Name}\u0022:{elem.GetValue(obj) ?? "null"}";
+            object value = elem.GetValue(obj);
+            string textValue = value is string text ? $"\"{text.Replace("\"", "\\\"")}\"" : $"{value ?? "null"}";
+            string currentPropertyFormat = $"\"{elem.Name}\":{textValue}";
             props.Add(currentPropertyFormat);
         }
-    
-        string jsonString = "";
+        // расставляем запятые
         for (int i = 0; i < props.Count; i++)
         {
             jsonString += props[i];
