@@ -10,9 +10,10 @@ public class UnitTest1
     public void TestMethod1()
     {
         TestsClass testsClass = new TestsClass("this is string", 0, 'a', true);
-        string expected = JsonSerializer.Serialize(testsClass);
+       
         Serializer mySerializer = new Serializer();
         string actual = mySerializer.Serialize(testsClass);
+        string expected = "{\"testString\":\"this is string\",\"testInteger\":0,\"testSymbol\":\"a\",\"testBoolean\":true}";
         Assert.AreEqual(expected, actual);
     }
     [TestMethod]
