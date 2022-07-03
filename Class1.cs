@@ -16,9 +16,12 @@ public class Serializer
             object? value = elem.GetValue(obj);
             value = value is char ? value.ToString() : value;
             string textValue = value is string text ? $"\"{text.Replace("\"", "\\\"")}\"" : $"{value ?? "null"}";
-            textValue = value is bool ? textValue.ToLower() : textValue;
             string  currentPropertyFormat = $"\"{elem.Name}\":{textValue}";
-            props.Add(currentPropertyFormat);
+
+            if (value is List<object>) {
+                jsonString += $"\"{elem.Name}\"" + Serialize(elem).Replace("{", "").Replace("}", "");
+            }
+             props.Add(currentPropertyFormat);
         }
         
         for (int i = 0; i < props.Count; i++)

@@ -13,7 +13,7 @@ public class UnitTest1
        
         Serializer mySerializer = new Serializer();
         string actual = mySerializer.Serialize(testsClass);
-        string expected = "{\"testString\":\"this is string\",\"testInteger\":0,\"testSymbol\":\"a\",\"testBoolean\":true}";
+        string expected = "{\"testString\":\"this is string\",\"testInteger\":0,\"testSymbol\":\"a\",\"testBoolean\":True}";
         Assert.AreEqual(expected, actual);
     }
     [TestMethod]
