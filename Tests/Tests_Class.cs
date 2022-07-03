@@ -16,10 +16,3 @@ public class TestsClass
     }
 }
 
-public class TestsClass_noConstuctor
-{
-    public string testString { get; set; }
-    public int testInteger { get; set; }
-    public char testSymbol { get; set; }
-    public bool testBoolean { get; set; }
-}

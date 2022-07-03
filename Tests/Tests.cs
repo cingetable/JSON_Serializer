@@ -18,10 +18,6 @@ public class UnitTest1
     [TestMethod]
     public void TestMethod2()
     {
-        TestsClass_noConstuctor testsClass = new TestsClass_noConstuctor();
-        string expected = JsonSerializer.Serialize(testsClass);
-        Serializer mySerializer = new Serializer();
-        string actual = mySerializer.Serialize(testsClass);
-        Assert.AreEqual(expected, actual);
+       
     }
 }
