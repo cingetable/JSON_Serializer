@@ -1,6 +1,8 @@
 global using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Text.Json;
 using JSON_Serializer;
+using JsonSerializer = Newtonsoft.Json.JsonSerializer;
+
 namespace Tests;
 
 [TestClass]
@@ -13,7 +15,7 @@ public class UnitTest1
        
         Serializer mySerializer = new Serializer();
         string actual = mySerializer.Serialize(testsClass);
-        string expected = "{\"testString\":\"this is string\",\"testInteger\":0,\"testSymbol\":\"a\",\"testBoolean\":True}";
+        string expected = "{\"testString\":\"this is string\",\"testInteger\":0,\"testSymbol\":\"a\",\"testBoolean\":true}";
         Assert.AreEqual(expected, actual);
     }
     [TestMethod]
@@ -23,17 +25,17 @@ public class UnitTest1
        
         Serializer mySerializer = new Serializer();
         string actual = mySerializer.Serialize(testsClass2);
-        string expected = "{\"testString\":\"this is string\",\"testInteger\":0,\"testSymbol\":\"a\",\"testBoolean\":True}";
+        string expected = "{\"testString\":\"this is string\",\"testInteger\":0,\"testSymbol\":\"a\",\"testBoolean\":true,\"testList\":[\"first elem\",\"second elem\"]}";
         Assert.AreEqual(expected, actual);
     }
     [TestMethod]
     public void TestMethod3() {
         List<object> list = new List<object>();
-        list.Add("1 elem");
-        list.Add("2 elem");
+        list.Add("1elem");
+        list.Add("2elem");
         Serializer mySerializer = new Serializer();
         string actual = mySerializer.Serialize(list);
-        string expected = "[\"1 elem\",\"2 elem\"]";
+        string expected = "[\"1elem\",\"2elem\"]";
         Assert.AreEqual(expected, actual);
     }
     [TestMethod]
