@@ -5,34 +5,30 @@ using System.Linq;
 namespace JSON_Serializer;
 public class Serializer
 {
-    
+
     public string Serialize(object obj) {
-        string jsonString = "";
-        List<string> props = new List<string>();
         Type type = obj.GetType();
-        
-        foreach (PropertyInfo elem in type.GetProperties())
-        {
-            object? value = elem.GetValue(obj);
-            value = value is char ? value.ToString() : value;
-            string textValue = value is string text ? $"\"{text.Replace("\"", "\\\"")}\"" : $"{value ?? "null"}";
-            string  currentPropertyFormat = $"\"{elem.Name}\":{textValue}";
-
-            if (value is List<object>) {
-                jsonString += $"\"{elem.Name}\"" + Serialize(elem).Replace("{", "").Replace("}", "");
+        string jsonString = string.Empty;
+        if (type == typeof(int) || type == typeof(decimal)) return obj.ToString();
+        if (type == typeof(string) || type == typeof(char)) return $"\"{obj}\"";
+        if (type == typeof(bool)) return obj.ToString().ToLower();
+        if (obj is List<object> list) {
+            string result = string.Empty;
+            foreach (var elem in list) {
+                result += Serialize(elem) + ",";
             }
-             props.Add(currentPropertyFormat);
+
+            return "[" + result.Remove(result.Length - 1) + "]";
+        }
+
+        if (obj is Dictionary<string, object> dict) {
+            foreach (KeyValuePair<string, object> elem in dict) {
+                jsonString += $"\"{elem.Key}\":{Serialize(elem.Value)},";
+               
+            }
+            return "{" + jsonString.Remove(jsonString.Length - 1) + "}";
         }
         
-        for (int i = 0; i < props.Count; i++)
-        {
-            jsonString += props[i];
-            if (i != props.Count - 1)
-                jsonString += ",";
-        }
-        return "{" + jsonString + "}";
-    }
-
-
- 
+        return "{" + jsonString.Remove(jsonString.Length) + "}";
+}
 }

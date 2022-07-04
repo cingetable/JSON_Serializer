@@ -19,6 +19,50 @@ public class UnitTest1
     [TestMethod]
     public void TestMethod2()
     {
+        TestsClass2 testsClass2 = new TestsClass2("this is string", 0, 'a', true);
        
+        Serializer mySerializer = new Serializer();
+        string actual = mySerializer.Serialize(testsClass2);
+        string expected = "{\"testString\":\"this is string\",\"testInteger\":0,\"testSymbol\":\"a\",\"testBoolean\":True}";
+        Assert.AreEqual(expected, actual);
+    }
+    [TestMethod]
+    public void TestMethod3() {
+        List<object> list = new List<object>();
+        list.Add("1 elem");
+        list.Add("2 elem");
+        Serializer mySerializer = new Serializer();
+        string actual = mySerializer.Serialize(list);
+        string expected = "[\"1 elem\",\"2 elem\"]";
+        Assert.AreEqual(expected, actual);
+    }
+    [TestMethod]
+    public void TestMethod4() {
+        List<object> list = new List<object>();
+        list.Add(2);
+        list.Add(400);
+        Serializer mySerializer = new Serializer();
+        string actual = mySerializer.Serialize(list);
+        string expected = "[2,400]";
+        Assert.AreEqual(expected, actual);
+    }
+    [TestMethod]
+    public void TestMethod5() {
+        Serializer mySerializer = new Serializer();
+        string actual = mySerializer.Serialize(5);
+        string expected = "5";
+        Assert.AreEqual(expected, actual);
+    }
+    [TestMethod]
+    public void TestMethod6() {
+        Serializer mySerializer = new Serializer();
+        Dictionary<string, object> dict = new Dictionary<string, object>() {
+            ["one"] = 1,
+            ["two"] = 2,
+            ["three"] = 3
+        };
+        string actual = mySerializer.Serialize(dict);
+        string expected = "{\"one\":1,\"two\":2,\"three\":3}";
+        Assert.AreEqual(expected, actual);
     }
 }
