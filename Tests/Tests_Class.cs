@@ -1,11 +1,10 @@
 ﻿namespace Tests;
 [Serializable]
-public class TestsClass
-{
-    public string testString { get; set; }
-    public int testInteger { get; set; }
-    public char testSymbol { get; set; }
-    public bool testBoolean { get; set; }
+public class TestsClass {
+    public string testString;
+    public int testInteger;
+    public char testSymbol;
+    public bool testBoolean;
 
     public TestsClass(string _testString, int _testInteger, char _testSymbol, bool _testBoolean)
     {
@@ -15,13 +14,12 @@ public class TestsClass
         testSymbol = _testSymbol;
     }
 }
-public class TestsClass2
-{
-    public string testString { get; set; }
-    public int testInteger { get; set; }
-    public char testSymbol { get; set; }
-    public bool testBoolean { get; set; }
-    public List<string> testList { get; set; }
+public class TestsClass2 {
+    public string testString;
+    public int testInteger;
+    public char testSymbol;
+    public bool testBoolean;
+    public List<string> testList;
     public TestsClass2(string _testString, int _testInteger, char _testSymbol, bool _testBoolean)
     {
         testString = _testString;
