@@ -28,7 +28,10 @@ public class Serializer
             }
             return "{" + jsonString.Remove(jsonString.Length - 1) + "}";
         }
-        
-        return "{" + jsonString.Remove(jsonString.Length) + "}";
+
+        foreach (FieldInfo field in type.GetFields()) {
+            jsonString += $"\"{field.Name}\":{Serialize(field.GetValue(obj))},";
+        }
+        return "{" + jsonString.Remove(jsonString.Length - 1) + "}";
 }
 }
